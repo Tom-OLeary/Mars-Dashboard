@@ -83,19 +83,6 @@ const ImageOfTheDay = apod => {
           <h3>${apod.getIn(["image", "title"])} </h3>
           <p>${apod.getIn(["image", "explanation"])}</p>`
   }
-  // const result = (!apod) 
-  //       ? getImageOfTheDay() : 
-  //     (apod.getIn(["image", "code"])) 
-  //       ? ` <h2>There is currently no data available</h2>` : 
-  //     (apod.getIn(["image", "media_type"]) === "video") 
-  //       ? `<p>See today's featured video 
-  //           <a href="${apod.getIn(["image", "url",])}">here</a>
-  //         </p>
-  //         <p>${apod.getIn(["image", "title"])}</p>
-  //         <p>${apod.getIn(["image", "explanation"])}</p>` 
-  //       : `<img src="${apod.getIn(["image", "url"])}"  class="center">
-  //         <h3>${apod.getIn(["image", "title"])} </h3>
-  //         <p>${apod.getIn(["image", "explanation"])}</p>`;
 
   return result;
 };
