@@ -117,11 +117,8 @@ const RoverData = (state) => {
 const Photo = (state) => {
   let { latestPhotos } = state;
 
-  let div = document.createElement("div");
-  let header = document.createElement("h3");
-  let headerDetails = document.createElement("h3");
-  let details = document.createElement("p");
-  let latestImage = document.createElement("img");
+  const elements = ["div", "h3", "h3", "p", "img"];
+  let [div, header, headerDetails, details, latestImage] = elements.map(e => document.createElement(e));
 
   header.innerHTML = "Latest Image";
   header.id = "image-header";
