@@ -205,9 +205,13 @@ function slideCaption(randomData, photoData) {
   document.querySelectorAll(".text").forEach(text => {
     let imageCam = document.createElement("p");
 
-    if (text.id === "img-data-1") { imageCam.innerHTML = photoData[randomData[0]].camera.full_name; } 
-    else if (text.id === "img-data-2") { imageCam.innerHTML = photoData[randomData[1]].camera.full_name; } 
-    else { imageCam.innerHTML = photoData[randomData[2]].camera.full_name; }
+    if (text.id === "img-data-1") { 
+      imageCam.innerHTML = photoData[randomData[0]].camera.full_name; 
+    } else if (text.id === "img-data-2") { 
+      imageCam.innerHTML = photoData[randomData[1]].camera.full_name; 
+    } else { 
+      imageCam.innerHTML = photoData[randomData[2]].camera.full_name; 
+    }
 
     text.textContent = imageCam.textContent;
   });
@@ -218,31 +222,19 @@ function slideCaption(randomData, photoData) {
  * @param {string} rover - Current rover
  */
 function setBackgroundImage(rover) {
-  switch (rover) {
-    case 'curiosity':
-        document.body.background = 'images/land.jpg';
-        break;
-    case 'spirit':
-        document.body.background = 'images/astronaut.jpg';
-        break;
-    case 'opportunity':
-        document.body.background = 'images/mars.png';
-        break;
-    default:
-        document.body.background = 'images/canyons.jpg';
-        break;
+    document.body.background = `images/${rover}.jpg`;
   }
-}
 
 /**
  * @description - Sets page header to match rover
  * @param {string} rover - Current rover
  */
 function setHeader(rover) {
-  let header = document.getElementById("head");
-
-  if (rover === 'apod') { header.innerHTML = `Media Item of the Day`; } 
-  else { header.innerHTML = rover.charAt(0).toUpperCase() + rover.substring(1); }
+  if (rover === 'apod') { 
+    document.getElementById("head").innerHTML = `Media Item of the Day`; 
+  } else { 
+    document.getElementById("head").innerHTML = rover.charAt(0).toUpperCase() + rover.substring(1); 
+  }
 }
 
 /**
