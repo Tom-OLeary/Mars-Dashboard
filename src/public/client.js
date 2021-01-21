@@ -258,7 +258,8 @@ function getImageData(key, photoDetails) {
  */
 function randomize(photoData) {
   let nums = [];
-  for (let i = 0; i < 3; i++) {
+  let i;
+  for (i = 0; i < 3; i++) {
     nums.push(Math.floor(Math.random() * (photoData.length - 1)));
   }
   return nums;
