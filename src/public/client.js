@@ -68,24 +68,29 @@ const App = state => {
  */
 const ImageOfTheDay = apod => {
   let result;
-  if (!apod) {
-    getImageOfTheDay();
-  } else if (apod.getIn(["image", "code"])) {
-    result = ` <h2>There is currently no data available</h2>`
-  } else if (apod.getIn(["image", "media_type"]) === "video") {
-    result = `<p>See today's featured video 
-            <a href="${apod.getIn(["image", "url",])}">here</a>
-          </p>
-          <p>${apod.getIn(["image", "title"])}</p>
-          <p>${apod.getIn(["image", "explanation"])}</p>`
-  } else {
-    result = `<img src="${apod.getIn(["image", "url"])}"  class="center">
-          <h3>${apod.getIn(["image", "title"])} </h3>
-          <p>${apod.getIn(["image", "explanation"])}</p>`
-  }
+  if (!apod) { getImageOfTheDay() } 
+  
+  result = setImageOfTheDay(apod)
 
   return result;
 };
+
+const setImageOfTheDay = apod => {
+  if (setCondition("code", apod)) return `<h2>There is currently no data available</h2>`
+  if (setCondition("media_type", apod) === "video") return (
+      `<p>See today's featured video 
+        <a href="${apod.getIn(["image", "url",])}">here</a>
+      </p>
+      <p>${apod.getIn(["image", "title"])}</p>
+      <p>${apod.getIn(["image", "explanation"])}</p>`
+  )
+
+  return `<img src="${apod.getIn(["image", "url"])}"  class="center">
+    <h3>${apod.getIn(["image", "title"])} </h3>
+    <p>${apod.getIn(["image", "explanation"])}</p>`
+}
+
+const setCondition = (param, apod) => apod.getIn(["image", param])
 
 /**
  * @description - Collects rover data
