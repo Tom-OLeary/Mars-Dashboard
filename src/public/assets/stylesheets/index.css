@@ -9,8 +9,7 @@ body {
     min-height: 100vh;
     
     background-position: center;
-    background-size: 1200px 1400px;
-    background-position-y: -150px;
+    background-size: cover;
     background-repeat: no-repeat; 
     background-color: rgb(117, 112, 112);
   }
@@ -39,9 +38,9 @@ main {
 input[name=css-tabs] {
   display: none;
 }
-a {
+/* a {
   color: rgb(230, 70, 7);
-}
+} */
 #tabs {
   padding: 0 0 0 50px;
   width: calc(100% + 60px);
@@ -279,7 +278,6 @@ img {
 @media (min-width: 768px) {
   body {
     font-size: 1em;
-    background-size: 1500px 1700px;
   }
 
   header {
@@ -344,15 +342,17 @@ img {
   #content2, #content3, #content4 {
     font-size: 1em;
   }
+  .content-right {
+    padding: 10px;
+    position: absolute;
+    min-height: 100vh;
+    right: 0;
+    width: 400px;
+  } 
 }
 
 /* -------------------  DESKTOP  --------------------- */
 @media (min-width: 991px) {
-  body {
-    font-size: 1em;
-    background-size: 1500px 1700px;
-  }
-
   header {
     font-size: 2em;
   }
@@ -414,5 +414,28 @@ img {
   }
   #content2, #content3, #content4 {
     font-size: 1em;
+  }
+}
+
+@media (min-width: 2392px) {
+  main {
+    max-width: 1000px;
+  }
+  header {
+    color: #ffffff;
+  }
+  .latest-photo {
+    width: 600px;
+  }
+}
+
+@media (min-width: 460px) and (max-width: 768px){
+  img {
+    vertical-align: middle;
+    height: 170px;
+    width: 375px;
+  }
+  .text {
+    width: 50%;
   }
 }
